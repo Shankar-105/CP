@@ -1,2 +1,2 @@
-# CP-Lab-Assessments
-A List of all CP Probelms From our CP lab syllabus
+# CP Lab Programs
+A Currated List of all CP Probelms from our CP Lab.
