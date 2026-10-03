@@ -1,0 +1,3 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){int n,m;cin>>n>>m;vector<int>a(n),b(m);for(int&x:a)cin>>x;for(int&x:b)cin>>x;if(n>m){swap(n,m);swap(a,b);}int lo=0,hi=n;while(lo<=hi){int x=(lo+hi)/2,y=(n+m+1)/2-x;int la=x?a[x-1]:INT_MIN,ra=x<n?a[x]:INT_MAX,lb=y?b[y-1]:INT_MIN,rb=y<m?b[y]:INT_MAX;if(la<=rb&&lb<=ra){if((n+m)%2)cout<<max(la,lb)<<'\n';else cout<<(max(la,lb)+min(ra,rb))/2.0<<'\n';return 0;}if(la>rb)hi=x-1;else lo=x+1;} }
