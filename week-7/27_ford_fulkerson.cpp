@@ -1,0 +1,4 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool bfs(vector<vector<int>>&r,int s,int t,vector<int>&p){int n=r.size();fill(p.begin(),p.end(),-1);queue<int>q;q.push(s);p[s]=-2;while(!q.empty()){int u=q.front();q.pop();for(int v=0;v<n;v++)if(p[v]==-1&&r[u][v]>0){p[v]=u;if(v==t)return true;q.push(v);}}return false;}
+int main(){int n,s,t;cin>>n>>s>>t;vector<vector<int>>cap(n,vector<int>(n)),r;for(auto&row:cap)for(int&x:row)cin>>x;r=cap;vector<int>p(n);int flow=0;while(bfs(r,s,t,p)){int add=INT_MAX;for(int v=t;v!=s;v=p[v])add=min(add,r[p[v]][v]);for(int v=t;v!=s;v=p[v]){r[p[v]][v]-=add;r[v][p[v]]+=add;}flow+=add;}cout<<flow<<'\n';}

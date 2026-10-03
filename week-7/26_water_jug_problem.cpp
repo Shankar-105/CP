@@ -1,0 +1,3 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){int A,B,T;cin>>A>>B>>T;queue<pair<int,int>>q;set<pair<int,int>>vis;q.push({0,0});vis.insert({0,0});while(!q.empty()){auto[u,v]=q.front();q.pop();if(u==T||v==T){cout<<"Reached target\n";return 0;}vector<pair<int,int>>nx={{A,v},{u,B},{0,v},{u,0},{u-min(u,B-v),v+min(u,B-v)},{u+min(v,A-u),v-min(v,A-u)}};for(auto p:nx)if(!vis.count(p)){vis.insert(p);q.push(p);}}cout<<"Target cannot be reached\n";}
